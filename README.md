@@ -17,9 +17,8 @@ Siriuz Online is a CrystalServer-based online RPG server (Open Tibia lineage) wi
 ## Architecture (High-Level)
 ```mermaid
 flowchart LR
-  CLIENT[Tibia Client] --> NET[Network Protocol Layer]
-  NET --> CORE[CPP Server Core (CrystalServer)]
-  CORE --> LUA[Lua Scripting Layer]
-  CORE --> DB[(MySQL Database)]
-  DEV[XAMPP + phpMyAdmin (Dev)] --> DB
-```
+  CLIENT["Tibia Client"] --> NET["Network Protocol Layer"]
+  NET --> CORE["CPP Server Core (CrystalServer)"]
+  CORE --> LUA["Lua Scripting Layer"]
+  CORE --> DB[("MySQL Database")]
+  DEV["XAMPP and phpMyAdmin (Dev)"] --> DB
