@@ -1,19 +1,21 @@
 # Architecture
 
-## Goals
-- Fast, reliable UX for **[primary user workflow]**
-- Maintainable codebase with clear boundaries
-- Secure handling of user data and permissions
-- Scales with **[expected growth axis: users/data/events]**
+Siriuz Online is a CrystalServer-based online RPG server with a C++ core and Lua scripting layer. It’s designed to support custom gameplay systems while keeping the runtime stable and maintainable.
 
-## System Diagram
+## Goals
+- Stable, low-downtime gameplay server with predictable performance
+- Fast iteration on game content and rules via Lua scripting
+- Clean separation between core engine (C++) and game logic/content (Lua)
+- Reliable persistence (MySQL) for player state, items, quests, systems, and logs
+
+## High-Level System Diagram
 
 ```mermaid
 flowchart LR
-  UI[Web UI / Client] --> API[Rails Controllers / API]
-  API --> SVC[Service Objects / Domain Layer]
-  SVC --> DB[(SQL Database)]
-  SVC --> CACHE[(Cache)]
-  SVC --> JOBS[Background Jobs / Queue]
-  JOBS --> EXT[External Services/APIs]
-  API --> OBS[Logging/Monitoring]
+  CLIENT[Tibia Client] --> NET[Network Protocol Layer]
+  NET --> GAME[C++ Server Core (CrystalServer)]
+  GAME --> LUA[Lua Scripts (Game Logic)]
+  GAME --> DB[(MySQL)]
+  ADMIN[Admin Tools / phpMyAdmin] --> DB
+  DEV[XAMPP Local Dev (Windows)] --> GAME
+  DEV --> DB
