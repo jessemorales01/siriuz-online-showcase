@@ -1,4 +1,4 @@
-# Siriuz Online (Showcase)
+ # Siriuz Online (Showcase)
 
 Siriuz Online is a CrystalServer-based online RPG server (Open Tibia lineage) with a C++ core and a Lua scripting layer, backed by MySQL for persistent player/state data. Source code is kept private; this repo documents architecture, stack, and engineering decisions.
 
@@ -22,3 +22,4 @@ flowchart LR
   CORE --> LUA[Lua Scripting Layer]
   CORE --> DB[(MySQL Database)]
   DEV[XAMPP + phpMyAdmin (Dev)] --> DB
+```
